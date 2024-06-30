@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,19 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mondrian Project</title>
   <style>
-    /* 
-    Write your CSS here 
-    Gap Colour: #000
-    White: #F0F1EC
-    Red: #E72F24
-    Black: #232629
-    Blue: #004592
-    Yellow: #F9D01E
-
-    For dimensions, see dimensions.png image.
-    HINT: Remember you can't change the properties of grid lines.
-    But grid lines are transparent!
-    */
+    
     body {
       display: flex;
       justify-content: center;
@@ -26,6 +14,7 @@
       height: 100vh;
       margin: 0;
       border: 0;
+      background-color: #232629; /* Setting a dark background */
     }
 
     .container {
@@ -38,6 +27,7 @@
 
     .item {
       background-color: #F0F1EC;
+      transition: background-color 0.3s ease; /* Smooth transition on background color change */
     }
 
     .red {
@@ -72,24 +62,48 @@
     .black {
       background-color: #232629;
     }
+
+    /*   hover effect */
+    .item:hover {
+      transform: scale(1.1);
+    }
+
+    /*   animation */
+    @keyframes colorChange {
+      0% { background-color: #F0F1EC; }
+      50% { background-color: #E72F24; }
+      100% { background-color: #F0F1EC; }
+    }
+
+    .red {
+      animation: colorChange 5s infinite; /* Apply animation to .red elements */
+    }
   </style>
 </head>
 
 <body>
-  <!-- Write your HTML here -->
   <div class="container">
+    <!--   Mondrian grid elements -->
     <div class="item red"></div>
     <div class="item white1"></div>
     <div class="item white2"></div>
     <div class="item white3"></div>
-
     <div class="item blue"></div>
     <div class="item white4"></div>
-
     <div class="item white5"></div>
     <div class="item yellow"></div>
     <div class="item black"></div>
   </div>
+
+  <!-- Optional: JavaScript for additional interactivity -->
+  <script>
+    // click event listener
+    document.querySelectorAll('.item').forEach(item => {
+      item.addEventListener('click', () => {
+        item.style.backgroundColor = '#00ff00'; // Change background color on click
+      });
+    });
+  </script>
 </body>
 
 </html>
